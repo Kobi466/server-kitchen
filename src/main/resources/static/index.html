@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>WebKitchen</title>
+    <link href="css/home.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img alt="WebKitchen" class="logo me-2" src="images/LOGO.png">
+            <span>WebKitchen</span>
+        </a>
+        <button class="navbar-toggler" data-bs-target="#navMenu" data-bs-toggle="collapse" type="button">
+            <i class="bi bi-list text-white fs-1"></i>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active" href="index.html">TRANG CHỦ</a></li>
+                <li class="nav-item"><a class="nav-link" href="html/congthuc.html">CÔNG THỨC</a></li>
+                <li class="nav-item"><a class="nav-link" href="html/monan.html">MÓN ĂN</a></li>
+                <li class="nav-item"><a class="nav-link" href="html/review.html">REVIEW</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Animated SVG Blobs -->
+<svg class="bg-blob bg-blob1" viewBox="0 0 200 200">
+    <path d="M40,-60C55,-50,70,-40,75,-25C80,-10,75,10,65,25C55,40,40,50,25,60C10,70,-10,80,-25,75C-40,70,-50,55,-60,40C-70,25,-80,10,-75,-10C-70,-30,-55,-50,-40,-60C-25,-70,-10,-80,10,-75C30,-70,50,-55,60,-40Z"
+          fill="#ff914d"
+          transform="translate(100 100)"/>
+</svg>
+<svg class="bg-blob bg-blob2" viewBox="0 0 200 200">
+    <path d="M40,-60C55,-50,70,-40,75,-25C80,-10,75,10,65,25C55,40,40,50,25,60C10,70,-10,80,-25,75C-40,70,-50,55,-60,40C-70,25,-80,10,-75,-10C-70,-30,-55,-50,-40,-60C-25,-70,-10,-80,10,-75C30,-70,50,-55,60,-40Z"
+          fill="#ffd700"
+          transform="translate(100 100)"/>
+</svg>
+<svg class="bg-blob bg-blob3" style="left:50%;top:80%;width:100px;opacity:0.09;" viewBox="0 0 200 200">
+    <path d="M40,-60C55,-50,70,-40,75,-25C80,-10,75,10,65,25C55,40,40,50,25,60C10,70,-10,80,-25,75C-40,70,-50,55,-60,40C-70,25,-80,10,-75,-10C-70,-30,-55,-50,-40,-60C-25,-70,-10,-80,10,-75C30,-70,50,-55,60,-40Z"
+          fill="#7ed957"
+          transform="translate(100 100)"/>
+</svg>
+
+<!-- Hero Carousel -->
+<div class="carousel slide carousel-fade" data-bs-interval="2500" data-bs-ride="carousel" id="carouselExampleFade">
+    <div class="carousel-overlay">
+        <div>
+            <h1 class="overlay-title">Welcome to WebKitchen</h1>
+            <p class="overlay-text">Nấu ngon mỗi ngày – đơn giản từ hôm nay</p>
+        </div>
+        <button class="btn btn-warning">Vào bếp cùng tôi</button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active"><img alt="Slide 1" class="d-block w-100" src="images/anh1.jpg"></div>
+        <div class="carousel-item"><img alt="Slide 2" class="d-block w-100" src="images/anh4.png"></div>
+        <div class="carousel-item"><img alt="Slide 3" class="d-block w-100" src="images/anh5.jpg"></div>
+        <div class="carousel-item"><img alt="Slide 4" class="d-block w-100" src="images/anh7.png"></div>
+    </div>
+    <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleFade" type="button">
+        <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleFade" type="button">
+        <span aria-hidden="true" class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- Wavy Divider -->
+<div class="wavy-divider">
+    <svg viewBox="0 0 1440 80">
+        <path d="M0,32L60,37.3C120,43,240,53,360,58.7C480,64,600,64,720,53.3C840,43,960,21,1080,16C1200,11,1320,21,1380,26.7L1440,32L1440,80L1380,80C1320,80,1200,80,1080,80C960,80,840,80,720,80C600,80,480,80,360,80C240,80,120,80,60,80L0,80Z"
+              fill="#ffe5b4"></path>
+    </svg>
+</div>
+
+<!-- About Section -->
+<section class="container my-5 py-5 reveal">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <p class="subheading">Về WebKitchen</p>
+            <h2 class="fw-bold display-5 section-heading">Khám phá thế giới ẩm thực thú vị mỗi ngày</h2>
+            <p class="mt-3">Chúng tôi mang đến những công thức chuẩn vị, dễ làm, dành cho mọi lứa tuổi. Dù bạn là người
+                mới hay đầu bếp gia đình, WebKitchen luôn đồng hành cùng bạn.</p>
+        </div>
+        <div class="col-md-6 text-center mt-4 mt-md-0">
+            <img alt="About" class="img-fluid rounded-4 shadow" src="images/anh6.png">
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="container my-5 py-4 stats-section text-center reveal">
+    <div class="row">
+        <div class="col-md-3 col-6 mb-4">
+            <div class="stat-card">
+                <i class="bi bi-people stat-icon animated-icon"></i>
+                <h3 class="stat-number">10K+</h3>
+                <p class="stat-label">Thành viên</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+            <div class="stat-card">
+                <i class="bi bi-journal-bookmark stat-icon animated-icon"></i>
+                <h3 class="stat-number">500+</h3>
+                <p class="stat-label">Công thức</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+            <div class="stat-card">
+                <i class="bi bi-star-fill stat-icon animated-icon"></i>
+                <h3 class="stat-number">4.9/5</h3>
+                <p class="stat-label">Đánh giá</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+            <div class="stat-card">
+                <i class="bi bi-globe2 stat-icon animated-icon"></i>
+                <h3 class="stat-number">20+</h3>
+                <p class="stat-label">Quốc gia</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Wavy Divider -->
+<div class="wavy-divider">
+    <svg viewBox="0 0 1440 80">
+        <path d="M0,32L60,37.3C120,43,240,53,360,58.7C480,64,600,64,720,53.3C840,43,960,21,1080,16C1200,11,1320,21,1380,26.7L1440,32L1440,80L1380,80C1320,80,1200,80,1080,80C960,80,840,80,720,80C600,80,480,80,360,80C240,80,120,80,60,80L0,80Z"
+              fill="#ffe5b4"></path>
+    </svg>
+</div>
+
+<!-- Featured Recipes Timeline -->
+<!-- Featured Recipes Timeline (Horizontal Stepper) -->
+<section class="container featured-recipes-section py-5 reveal">
+
+    <!-- SVG blob left -->
+    <svg class="bg-blob bg-blob1" viewBox="0 0 200 200">
+        <path d="M40,-60C55,-50,70,-40,75,-25C80,-10,75,10,65,25C55,40,40,50,25,60C10,70,-10,80,-25,75C-40,70,-50,55,-60,40C-70,25,-80,10,-75,-10C-70,-30,-55,-50,-40,-60C-25,-70,-10,-80,10,-75C30,-70,50,-55,60,-40Z"
+              fill="#ff914d"
+              transform="translate(100 100)"/>
+    </svg>
+    <!-- SVG blob right -->
+    <svg class="bg-blob bg-blob2" viewBox="0 0 200 200">
+        <path d="M40,-60C55,-50,70,-40,75,-25C80,-10,75,10,65,25C55,40,40,50,25,60C10,70,-10,80,-25,75C-40,70,-50,55,-60,40C-70,25,-80,10,-75,-10C-70,-30,-55,-50,-40,-60C-25,-70,-10,-80,10,-75C30,-70,50,-55,60,-40Z"
+              fill="#ffd700"
+              transform="translate(100 100)"/>
+    </svg>
+    <h2 class="fw-bold text-center mb-3 section-heading">
+        <i class="bi bi-egg-fried me-2"></i>Công thức nấu ăn nổi bật
+    </h2>
+    <p class="text-center mb-5 text-muted fs-5">
+        Khám phá những công thức nấu ăn được yêu thích nhất của chúng tôi, được chọn lọc kỹ lưỡng cho mọi bữa ăn trong
+        ngày. Mỗi món ăn đều dễ làm và đầy hương vị!
+    </p>
+    <div class="timeline-horizontal d-flex flex-wrap justify-content-center align-items-start position-relative">
+        <!-- Step 1 -->
+        <div class="timeline-step text-center flex-fill mx-2 mb-4">
+            <div class="timeline-dot">
+                <i class="bi bi-cup-straw"></i>
+            </div>
+            <div class="card card-feature mt-3 position-relative">
+                <span class="badge bg-danger position-absolute top-0 start-0 m-2" style="font-size:0.95rem;">
+                    <i class="bi bi-star"></i> Recipe of the Day
+                </span>
+                <button class="btn btn-light position-absolute top-0 end-0 m-2 p-1 rounded-circle shadow-sm"
+                        title="Add to favorites">
+                    <i class="bi bi-heart"></i>
+                </button>
+                <img alt="Bánh mì ốp la" class="card-img-top" src="images/banhmi.webp">
+                <div class="card-body">
+                    <h5 class="card-title">Bánh Mì Ốp La</h5>
+                    <div class="d-flex justify-content-center align-items-center mb-2 gap-2">
+                        <span class="text-warning"><i class="bi bi-star-fill"></i> 4.8</span>
+                        <span class="text-muted small"><i class="bi bi-clock"></i> 10 min</span>
+                    </div>
+                    <p class="card-text">Bữa sáng nhanh gọn, giàu năng lượng cho ngày mới.</p>
+                    <span class="badge bg-warning text-dark">Breakfast</span>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="text-success"><i class="bi bi-lightbulb"></i> Tip: Dùng bánh mì nóng để ngon hơn!</small>
+                        <span class="text-danger"><i class="bi bi-heart-fill"></i> 120</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="timeline-step text-center flex-fill mx-2 mb-4">
+            <div class="timeline-dot">
+                <i class="bi bi-egg-fried"></i>
+            </div>
+            <div class="card card-feature mt-3 position-relative">
+                <button class="btn btn-light position-absolute top-0 end-0 m-2 p-1 rounded-circle shadow-sm"
+                        title="Add to favorites">
+                    <i class="bi bi-heart"></i>
+                </button>
+                <img alt="Phở bò" class="card-img-top" src="images/photruyenthong.webp">
+                <div class="card-body">
+                    <h5 class="card-title">Phở Bò</h5>
+                    <div class="d-flex justify-content-center align-items-center mb-2 gap-2">
+                        <span class="text-warning"><i class="bi bi-star-fill"></i> 4.9</span>
+                        <span class="text-muted small"><i class="bi bi-clock"></i> 30 min</span>
+                    </div>
+                    <p class="card-text">Món ăn truyền thống, thơm ngon, bổ dưỡng.</p>
+                    <span class="badge bg-warning text-dark">Lunch</span>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="text-success"><i class="bi bi-lightbulb"></i> Tip: Thêm quẩy giòn khi ăn!</small>
+                        <span class="text-danger"><i class="bi bi-heart-fill"></i> 98</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="timeline-step text-center flex-fill mx-2 mb-4">
+            <div class="timeline-dot">
+                <i class="bi bi-moon-stars"></i>
+            </div>
+            <div class="card card-feature mt-3 position-relative">
+                <button class="btn btn-light position-absolute top-0 end-0 m-2 p-1 rounded-circle shadow-sm"
+                        title="Add to favorites">
+                    <i class="bi bi-heart"></i>
+                </button>
+                <img alt="Cháo gà" class="card-img-top" src="images/chao-ga.jpg">
+                <div class="card-body">
+                    <h5 class="card-title">Cháo Gà</h5>
+                    <div class="d-flex justify-content-center align-items-center mb-2 gap-2">
+                        <span class="text-warning"><i class="bi bi-star-fill"></i> 4.7</span>
+                        <span class="text-muted small"><i class="bi bi-clock"></i> 20 min</span>
+                    </div>
+                    <p class="card-text">Nhẹ nhàng, dễ tiêu hóa, phù hợp cho cả gia đình.</p>
+                    <span class="badge bg-warning text-dark">Dinner</span>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <small class="text-success"><i class="bi bi-lightbulb"></i> Tip: Thêm hành lá và tiêu cho thơm!</small>
+                        <span class="text-danger"><i class="bi bi-heart-fill"></i> 87</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial Carousel -->
+    <div class="testimonial-carousel text-center mt-5">
+        <div class="testimonial-item">
+            <p class="fst-italic">"Nhờ WebKitchen, tôi đã tự tin nấu bữa sáng cho cả nhà!"</p>
+            <span class="fw-bold">– Lan Anh, Hà Nội</span>
+        </div>
+        <div class="testimonial-item d-none">
+            <p class="fst-italic">"Công thức dễ hiểu, món ăn ngon và đẹp mắt!"</p>
+            <span class="fw-bold">– Minh Quân, Đà Nẵng</span>
+        </div>
+        <div class="testimonial-item d-none">
+            <p class="fst-italic">"Gia đình tôi rất thích các món ăn ở đây, cảm ơn WebKitchen!"</p>
+            <span class="fw-bold">– Thu Hằng, TP.HCM</span>
+        </div>
+        <button class="btn btn-outline-warning mt-3" id="nextTestimonial" style="font-size:1.1rem;">
+            <i class="bi bi-chevron-right"></i> Xem nhận xét tiếp
+        </button>
+    </div>
+    <div class="text-center mt-4">
+        <a class="btn btn-lg btn-warning px-5 fw-bold shadow" href="html/congthuc.html">
+            <i class="bi bi-journal-bookmark me-2"></i>Xem tất cả công thức
+        </a>
+    </div>
+</section>
+
+<!-- Wavy Divider -->
+<div class="wavy-divider">
+    <svg viewBox="0 0 1440 80">
+        <path d="M0,32L60,37.3C120,43,240,53,360,58.7C480,64,600,64,720,53.3C840,43,960,21,1080,16C1200,11,1320,21,1380,26.7L1440,32L1440,80L1380,80C1320,80,1200,80,1080,80C960,80,840,80,720,80C600,80,480,80,360,80C240,80,120,80,60,80L0,80Z"
+              fill="#ffe5b4"></path>
+    </svg>
+</div>
+
+<!-- Latest Blog Section -->
+<section class="container my-5 latest-blog-section shadow-lg reveal">
+    <h2 class="fw-bold text-center mb-4 section-heading">📝 Bài Viết Mới Nhất</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="blog-card h-100">
+                <img alt="Blog 1" class="blog-img" src="images/biquyetnauan.webp">
+                <div class="blog-body">
+                    <h5 class="blog-title">Bí quyết nấu ăn ngon</h5>
+                    <p class="blog-text">Những mẹo nhỏ giúp món ăn của bạn thêm hấp dẫn và chuẩn vị.</p>
+                    <a class="btn btn-outline-warning"
+                       href="https://hellobacsi.com/an-uong-lanh-manh/cong-thuc-nau-an-tot-cho-suc-khoe/bi-quyet-nau-an-ngon/" target="_blank">Đọc thêm</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="blog-card h-100">
+                <img alt="Blog 2" class="blog-img" src="images/baoquan.jpg">
+                <div class="blog-body">
+                    <h5 class="blog-title">Bảo quản thực phẩm đúng cách</h5>
+                    <p class="blog-text">Giữ thực phẩm tươi lâu, an toàn cho sức khỏe gia đình bạn.</p>
+                    <a class="btn btn-outline-warning" href="https://t2cmall.com/goc-tu-van/bao-quan-thuc-pham.html"
+                       target="_blank">Đọc thêm</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="blog-card h-100">
+                <img alt="Blog 3" class="blog-img" src="images/giavi.jpg">
+                <div class="blog-body">
+                    <h5 class="blog-title">Gia vị Việt Nam</h5>
+                    <p class="blog-text">Khám phá các loại gia vị truyền thống và cách sử dụng hiệu quả.</p>
+                    <a class="btn btn-outline-warning" href="https://giaviviet.vn/" target="_blank">Đọc thêm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Join Community Section -->
+<section class="container my-5 py-5 join-community-section text-center reveal">
+    <h2 class="fw-bold mb-3 section-heading">
+        <i class="bi bi-egg-fried me-2"></i>Tham Gia Cộng Đồng Nấu Ăn!
+    </h2>
+    <p class="mb-4">Chia sẻ công thức, kết nối với các đầu bếp tại gia và nhận bí quyết nấu ăn mỗi tuần.</p>
+    <a class="btn btn-lg btn-warning px-5 py-3 fw-bold shadow" href="#">
+        <i class="bi bi-emoji-smile me-2"></i>Đăng ký lớp học nấu ăn
+    </a>
+</section>
+
+<footer class="custom-footer text-center">
+    <div class="footer-content container py-4">
+        <div class="row text-start">
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h5 class="fw-bold text-warning mb-2">About WebKitchen</h5>
+                <p class="small mb-2">
+                    WebKitchen is your daily companion for delicious, easy-to-make recipes. Join our community and
+                    explore the world of Vietnamese cuisine!
+                </p>
+                <div class="d-flex gap-3 mt-3">
+                    <a class="text-warning fs-4" href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a class="text-warning fs-4" href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a class="text-warning fs-4" href="#" title="YouTube"><i class="bi bi-youtube"></i></a>
+                    <a class="text-warning fs-4" href="#" title="Tiktok"><i class="bi bi-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h5 class="fw-bold text-warning mb-2">Quick Links</h5>
+                <ul class="list-unstyled small">
+                    <li><a class="text-decoration-none text-light" href="home.html">Home</a></li>
+                    <li><a class="text-decoration-none text-light" href="congthuc.html">Recipes</a></li>
+                    <li><a class="text-decoration-none text-light" href="#">Blog</a></li>
+                    <li><a class="text-decoration-none text-light" href="#">Join Community</a></li>
+                    <li><a class="text-decoration-none text-light" href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5 class="fw-bold text-warning mb-2">Contact</h5>
+                <ul class="list-unstyled small">
+                    <li><i class="bi bi-envelope me-2"></i>contact@webkitchen.vn</li>
+                    <li><i class="bi bi-telephone me-2"></i>+84 123 456 789</li>
+                    <li><i class="bi bi-geo-alt me-2"></i>Hà Nội, Việt Nam</li>
+                </ul>
+                <form class="mt-3">
+                    <div class="input-group input-group-sm">
+                        <input aria-label="Email" class="form-control" placeholder="Subscribe for tips" type="email">
+                        <button class="btn btn-warning" type="submit">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr class="my-4" style="border-color:#ffb385;">
+        <p class="mb-0 small">&copy; 2024 WebKitchen. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+body {
+    background: #fffdfa;
+    min-height: 100vh;
+    position: relative;
+}
+
+.logo {
+    height: 50px;
+    border-radius: 50%;
+}
+
+.custom-navbar {
+    background-color: #222c2bde;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.custom-navbar .navbar-brand span {
+    color: #fff;
+    font-size: 24px;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+.custom-navbar .nav-link {
+    color: #fff !important;
+    margin: 0 20px;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.custom-navbar .nav-link.active,
+.custom-navbar .nav-link:hover {
+    color: #ff914d !important;
+    transform: translateY(-3px);
+}
+
+.custom-navbar .nav-link.active::after,
+.custom-navbar .nav-link:hover::after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 20px; /* Short underline */
+    height: 3px;
+    background: #ff914d;
+    border-radius: 2px;
+    margin-top: 2px;
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    opacity: 0.78;
+    background: none;
+    border: none;
+    padding: 0 2px 2px 2px;
+    transition: color 0.22s, opacity 0.22s;
+    position: relative;
+}
+
+.custom-navbar.scrolled {
+    background-color: #222c2bde;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.bg-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    background: url('https://www.transparenttextures.com/patterns/food.png') repeat;
+    opacity: 0.07;
+}
+
+
+#userAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffd700;
+}
+
+#userName {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.form-control:focus {
+    border-color: #ff914d;
+    box-shadow: 0 0 8px rgba(255, 145, 77, 0.2);
+}
+
+#logoutBtn {
+    display: none;
+    background-color: #dc3545;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+#logoutBtn:hover {
+    background-color: #c82333;
+}
+
+/* Container cho nút đăng ký */
+.register-container {
+    display: flex;
+    justify-content: center; /* Căn giữa nút */
+    align-items: center;
+    margin-top: 20px; /* Khoảng cách phía trên */
+    margin-bottom: 20px; /* Khoảng cách phía dưới */
+}
+
+/* Định dạng nút đăng ký */
+#registerBtn {
+    background-color: #ff914d; /* Màu nền chính */
+    color: #fff; /* Màu chữ */
+    font-size: 1.2rem; /* Kích thước chữ */
+    padding: 12px 24px; /* Khoảng cách bên trong nút */
+    border: none; /* Xóa viền */
+    border-radius: 25px; /* Bo góc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng khi hover */
+}
+
+/* Hiệu ứng khi hover */
+#registerBtn:hover {
+    background-color: #ffb385; /* Màu nền khi hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng khi hover */
+}
+
+/* Hiệu ứng khi click */
+#registerBtn:active {
+    background-color: #e67e22; /* Màu nền khi click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng khi click */
+}
+
+.review-divider {
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(90deg, #ff914d, #ffd700);
+    margin: 0 auto 32px auto;
+    border-radius: 3px;
+    box-shadow: 0 0 12px #ffd70044;
+}
+
+.image-preview img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.story-bar {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    padding: 18px 0 10px 0;
+    margin-bottom: 18px;
+    background: rgb(0, 0, 0);
+    border-radius: 18px;
+    box-shadow: 0 2px 12px #ff914d11;
+}
+
+.story-bar > div {
+    text-align: center;
+    min-width: 72px;
+}
+
+.story-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 3px solid #ffd700;
+    object-fit: cover;
+    box-shadow: 0 2px 8px #ff914d33;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.story-avatar:hover {
+    transform: scale(1.08) rotate(-3deg);
+    box-shadow: 0 4px 16px #ff914d55;
+    border-color: #ff914d;
+}
+
+.story-label {
+    font-size: 0.95rem;
+    color: #ff914d;
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+.blog-card {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 18px;
+    border: 2.5px solid #ffb385;
+    box-shadow: 0 8px 32px #ff914d22;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.2s;
+    overflow: hidden;
+    animation: fadeInUp 0.7s both;
+}
+
+.blog-card:hover {
+    transform: scale(1.04) rotate(-1deg);
+    box-shadow: 0 16px 48px #ff914d33;
+    border-color: #ff914d;
+}
+
+.blog-card .badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: linear-gradient(90deg, #ffd700 60%, #ff914d 100%);
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Pacifico', cursive;
+    box-shadow: 0 2px 8px #ffd70033;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+.blog-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 18px 18px 0 0;
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+
+.blog-img:hover {
+    filter: brightness(0.95) saturate(1.1);
+}
+
+.blog-body {
+    padding: 18px 18px 10px 18px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 18px;
+    margin-top: 10px;
+}
+
+.like-btn, .comment-btn, .share-btn {
+    background: none;
+    border: none;
+    color: #ff914d;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    outline: none;
+}
+
+.like-btn.active, .like-btn:focus {
+    color: #ffd700;
+}
+
+.comment-btn:hover, .share-btn:hover {
+    color: #ffd700;
+}
+
+.user-badge {
+    background: linear-gradient(90deg, #ffd700 60%, #ff914d 100%);
+    color: #fff;
+    font-size: 0.85rem;
+    font-family: 'Pacifico', cursive;
+    padding: 2px 10px;
+    border-radius: 8px;
+    margin-left: 8px;
+}
+
+/* Floating Action Button */
+.fab-post {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 30;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff914d 60%, #ffd700 100%);
+    color: #fff;
+    font-size: 2rem;
+    border: none;
+    box-shadow: 0 4px 24px #ff914d55;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.fab-post:hover {
+    background: linear-gradient(135deg, #ffd700 60%, #ff914d 100%);
+    box-shadow: 0 8px 32px #ffd70099;
+    color: #fffbe6;
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background: rgba(34, 44, 43, 0.85);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px #ff914d99;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Registration Modal */
+.modal-content {
+    border-radius: 18px;
+}
+
+.form-control:focus {
+    border-color: #ff914d;
+    box-shadow: 0 0 0 0.2rem #ffd70033;
+}
+
+.input-group-text {
+    background: #fffdfa;
+    border-radius: 8px 0 0 8px;
+}
+
+@media (max-width: 767px) {
+    .blog-img {
+        height: 120px;
+    }
+
+    .fab-post {
+        right: 16px;
+        bottom: 16px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+    }
+
+    .story-avatar {
+        width: 44px;
+        height: 44px;
+    }
+}

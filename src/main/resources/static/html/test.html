@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Globe Express - TikTok Layout Clone</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: #191d23;
+            overflow: hidden;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 30;
+            height: 66px;
+            background: rgba(25, 28, 36, 0.44);
+            backdrop-filter: blur(16px);
+            border: none;
+            box-shadow: none;
+            display: flex;
+            align-items: center;
+            padding: 0 56px;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: 2.5px;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            user-select: none;
+            gap: 10px;
+        }
+
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.10);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brand-dot {
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .nav-main {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .navbar-nav {
+            flex-direction: row;
+            gap: 32px;
+            margin-bottom: 0;
+            margin-right: 18px;
+            align-items: center;
+            display: flex;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 1px;
+            opacity: 0.78;
+            background: none;
+            border: none;
+            padding: 0 2px 2px 2px;
+            transition: color 0.22s, opacity 0.22s;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link.active,
+        .navbar-nav .nav-link:hover {
+            color: #ffb057 !important;
+            opacity: 1;
+        }
+
+        .navbar-nav .nav-link.active::after,
+        .navbar-nav .nav-link:hover::after {
+            content: '';
+            display: block;
+            width: 14px;
+            height: 2px;
+            border-radius: 2px;
+            background: #ffb057;
+            margin: 0 auto;
+            margin-top: 2px;
+            transition: width 0.18s;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 17px;
+            align-items: center;
+        }
+
+        .nav-icons i {
+            color: #fff;
+            font-size: 19px;
+            opacity: 0.8;
+            transition: color .18s;
+            cursor: pointer;
+        }
+
+        .nav-icons i:hover {
+            color: #ffb057;
+            opacity: 1;
+        }
+
+        .hero-section {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            min-width: 1200px;
+            min-height: 700px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-image 0.85s cubic-bezier(.33, 1, .68, 1);
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: flex;
+            align-items: stretch;
+            justify-content: flex-start;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(23, 27, 34, 0.96) 0%, rgba(23, 27, 34, 0.36) 43%, rgba(23, 27, 34, 0.00) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-main {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            align-items: flex-end;
+            height: 100vh;
+            width: 100vw;
+            max-width: 1720px;
+            margin: 0 auto;
+            justify-content: flex-start;
+            padding-bottom: 54px;
+        }
+
+        .hero-left {
+            flex: 0 0 590px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-left: 116px;
+            padding-right: 0;
+            min-width: 420px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .hero-content {
+            color: #fff;
+            padding-top: 0;
+            padding-bottom: 0;
+            max-width: 540px;
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.54s cubic-bezier(.33, 1, .68, 1), transform 0.54s cubic-bezier(.33, 1, .68, 1);
+            margin-bottom: 68px;
+        }
+
+        .hero-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .subtitle {
+            color: #ffb057;
+            font-size: 1.18rem;
+            font-weight: 500;
+            letter-spacing: 4.5px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            opacity: 0.91;
+        }
+
+        .main-title {
+            font-size: 4.2rem;
+            font-weight: 800;
+            line-height: 1.02;
+            margin-bottom: 9px;
+            letter-spacing: -2px;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            white-space: pre-line;
+        }
+
+        .description {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 30px;
+            max-width: 430px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-discover {
+            background: #ffb057;
+            border: 0;
+            padding: 13px 32px;
+            border-radius: 40px;
+            color: #222;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 17px rgba(255, 176, 87, 0.13);
+            transition: all 0.18s;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-discover:hover {
+            background: #ffaa38;
+            color: #fff;
+        }
+
+        .btn-video {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 15px;
+            transition: color 0.17s;
+        }
+
+        .btn-video:hover {
+            color: #ffb057;
+        }
+
+        .play-icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            font-size: 19px;
+            color: #fff;
+            box-shadow: 0 1px 12px rgba(0, 0, 0, 0.11);
+            transition: background 0.22s, color 0.22s, transform 0.22s;
+        }
+
+        .btn-video:hover .play-icon {
+            background: rgba(255, 255, 255, 0.38);
+            color: #ffb057;
+            transform: scale(1.1);
+        }
+
+        .hero-right {
+            flex: 1 1 0%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            position: relative;
+            min-width: 0;
+            min-height: 0;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .destination-area {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-end;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            pointer-events: none;
+        }
+
+        .destination-cards-wrap {
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            pointer-events: auto;
+            padding-right: 120px;
+            padding-bottom: 0;
+            min-height: 0;
+            z-index: 5;
+            margin-bottom: 24px;
+        }
+
+        .destination-cards {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px; /* giảm gap để gần hơn */
+            will-change: transform;
+            transition: transform 0.59s cubic-bezier(.33, 1, .68, 1);
+            z-index: 8;
+            height: 315px;
+            pointer-events: auto;
+        }
+
+        .destination-card {
+            position: relative;
+            width: 220px;
+            min-width: 220px;
+            max-width: 220px;
+            height: 315px;
+            border-radius: 24px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.19);
+            filter: grayscale(0.13) brightness(0.99);
+            transition: box-shadow 0.48s cubic-bezier(.33, 1, .68, 1),
+            transform 0.54s cubic-bezier(.33, 1, .68, 1),
+            filter 0.22s, opacity 0.43s cubic-bezier(.33, 1, .68, 1);
+            opacity: 0.68;
+            z-index: 1;
+            border: 2.5px solid transparent;
+            margin-bottom: 0;
+            pointer-events: auto;
+            background-clip: padding-box;
+            backdrop-filter: blur(0.5px);
+        }
+
+        .destination-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.68) 0%, rgba(0, 0, 0, 0.11) 56%, transparent 100%);
+            z-index: 1;
+            transition: background 0.2s;
+            pointer-events: none;
+        }
+
+        .destination-card .card-content {
+            position: absolute;
+            bottom: 28px;
+            left: 17px;
+            right: 17px;
+            z-index: 2;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
+            pointer-events: none;
+        }
+
+        .card-title {
+            font-size: 1.19rem;
+            font-weight: 700;
+            letter-spacing: 1.1px;
+            white-space: pre-line;
+            margin-bottom: 2px;
+            line-height: 1.09;
+        }
+
+        .card-subtitle {
+            font-size: 0.98rem;
+            font-weight: 400;
+            letter-spacing: 0.8px;
+            opacity: 0.79;
+            margin-bottom: 1.5px;
+        }
+
+        .destination-card.active,
+        .destination-card:hover {
+            box-shadow: 0 18px 54px 0 rgba(255, 176, 87, 0.17), 0 2px 12px rgba(0, 0, 0, 0.13);
+            transform: scale(1.13) translateY(-15px);
+            filter: grayscale(0) brightness(1.10);
+            opacity: 1;
+            z-index: 4;
+        }
+
+        .destination-card:not(.active) {
+            transform: scale(0.95);
+            opacity: 0.50;
+            z-index: 2;
+            border: 2.5px solid transparent;
+        }
+
+        .destination-controls-area {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding-right: 120px;
+            z-index: 10;
+            pointer-events: auto;
+            margin-top: 18px;
+        }
+
+        .navigation-controls {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 22px;
+            z-index: 15;
+            margin-top: 0;
+        }
+
+        .nav-arrows {
+            display: flex;
+            gap: 11px;
+        }
+
+        .nav-arrow {
+            width: 52px;
+            height: 52px;
+            background: rgba(255, 255, 255, 0.21);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.24rem;
+            transition: all 0.18s;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 9px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-arrow:hover {
+            background: #ffb057;
+            color: #fff;
+            transform: scale(1.13);
+        }
+
+        .pagination-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            margin-left: 8px;
+        }
+
+        .current-page {
+            font-size: 16px;
+            color: #fff;
+            font-weight: 700;
+            opacity: 0.8;
+        }
+
+        .page-divider {
+            width: 650px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 2px;
+        }
+
+        .total-pages {
+            font-size: 16px; /* Kích thước giống current-page */
+            font-weight: 700; /* Độ đậm giống current-page */
+            opacity: 0.8; /* Độ mờ giống current-page */
+            color: #fff; /* Màu giống current-page */
+        }
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 6px;
+            background: #ffb057;
+            transition: width 1s cubic-bezier(0.4, 0.15, 0.2, 1);
+            z-index: 10;
+        }
+
+        @media (max-width: 1500px) {
+            .hero-left {
+                padding-left: 60px;
+            }
+
+            .destination-cards-wrap, .destination-controls-area {
+                padding-right: 24px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .main-title {
+                font-size: 2.1rem;
+            }
+
+            .hero-left {
+                padding-left: 20px;
+                min-width: 275px;
+            }
+
+            .destination-card {
+                width: 120px;
+                min-width: 120px;
+                max-width: 120px;
+                height: 140px;
+            }
+
+            .destination-cards {
+                gap: 6px;
+                height: 140px;
+            }
+
+            .destination-cards-wrap, .destination-controls-area {
+                padding-right: 10px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero-main {
+                flex-direction: column;
+            }
+
+            .hero-left, .hero-right {
+                padding: 0 16px;
+            }
+
+            .hero-left {
+                padding-top: 44px;
+            }
+
+            .hero-right {
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+            .destination-cards-wrap {
+                justify-content: center;
+            }
+
+            .destination-controls-area {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                height: 38px;
+                padding: 0 12px;
+            }
+
+            .main-title {
+                font-size: 1.2rem;
+            }
+
+            .hero-content {
+                max-width: 95vw;
+            }
+
+            .destination-cards {
+                gap: 2px;
+            }
+
+            .navigation-controls {
+                gap: 2px;
+            }
+
+            .destination-card {
+                width: 60px;
+                min-width: 60px;
+                max-width: 60px;
+                height: 68px;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <a class="brand" href="#">
+        <div class="brand-icon">
+            <div class="brand-dot"></div>
+        </div>
+        GLOBE EXPRESS
+    </a>
+    <div class="nav-main">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link active" href="#">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">HOLIDAYS</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">DESTINATIONS</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">FLIGHTS</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">OFFERS</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">CONTACTS</a></li>
+        </ul>
+        <div class="nav-icons ms-3">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-user"></i>
+        </div>
+    </div>
+</nav>
+
+<section class="hero-section" id="heroSection">
+    <div class="hero-main">
+        <div class="hero-left">
+            <div class="hero-content" id="heroContent">
+                <div class="subtitle" id="subtitle"></div>
+                <h1 class="main-title" id="mainTitle"></h1>
+                <p class="description" id="description"></p>
+                <div class="cta-buttons">
+                    <button class="btn btn-discover">
+                        <i class="fa fa-map-marker-alt"></i> DISCOVER LOCATION
+                    </button>
+                    <a class="btn-video" href="#">
+                        <div class="play-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        Watch Video
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="destination-area">
+                <div class="destination-cards-wrap">
+                    <div class="destination-cards" id="destinationCards"></div>
+                </div>
+                <div class="destination-controls-area">
+                    <div class="navigation-controls mt-1">
+                        <div class="nav-arrows">
+                            <button class="nav-arrow" id="prevBtn">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="nav-arrow" id="nextBtn">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="pagination-info">
+                            <span class="current-page" id="currentPage">01</span>
+                            <div class="page-divider"></div>
+                            <span class="total-pages" id="totalPages">03</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="progress-bar" id="progressBar"></div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    const destinations = [
+        {
+            id: 1,
+            title: "LOS LANCES<br>BEACH",
+            subtitle: "Tarifa · Spain",
+            description: "Mauris malesuada nisl sit amet augue accumsan tincidunt. Maecenas tincidunt, velit ac porttitor pulvinar, tortor orci facilisis libero",
+            background: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&h=1080&fit=crop&q=80",
+            cards: [
+                {
+                    title: "GÖREME<br>VALLEY",
+                    subtitle: "Cappadocia · Turkey",
+                    image: "https://images.unsplash.com/photo-1464822759844-d150ad6d1169?w=1920&h=1080&fit=crop&q=80"
+                },
+                {
+                    title: "SAINT<br>ANTONIEN",
+                    subtitle: "Switzerland Alps",
+                    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop&q=80"
+                },
+                {
+                    title: "NAGANO<br>PREFECTURE",
+                    subtitle: "Japan Alps",
+                    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop&q=80"
+                },
+                {
+                    title: "MARRAKECH<br>MERZOUGA",
+                    subtitle: "Sahara Desert · Morocco",
+                    image: "https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?w=1920&h=1080&fit=crop&q=80"
+                }
+            ]
+        },
+        {
+            id: 2,
+            title: "PATAGONIA<br>WILDERNESS",
+            subtitle: "South America",
+            description: "Dramatic landscapes where glaciers meet towering peaks. Discover the raw beauty of Earth's southern frontier in this land of endless horizons.",
+            background: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1920&h=1080&fit=crop&q=80",
+            cards: [
+                {
+                    title: "TORRES DEL<br>PAINE",
+                    subtitle: "Patagonia · Chile",
+                    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&h=1080&fit=crop&q=80"
+                },
+                {
+                    title: "GLACIER<br>NATIONAL PARK",
+                    subtitle: "Montana · United States",
+                    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&h=1080&fit=crop&q=80"
+                },
+                {
+                    title: "BARILOCHE<br>LAKES",
+                    subtitle: "Argentina",
+                    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1920&h=1080&fit=crop&q=80"
+                },
+                {
+                    title: "USHUAIA<br>CHANNEL",
+                    subtitle: "Tierra del Fuego · Argentina",
+                    image: "https://images.unsplash.com/photo-1544550581-5f7ceaf7f992?w=1920&h=1080&fit=crop&q=80"
+                }
+            ]
+        },
+        {
+            id: 3,
+            title: "ICELAND<br>ADVENTURE",
+            subtitle: "Nordic Explorer",
+            description: "Land of fire and ice where geysers dance with northern lights. Experience nature's most spectacular show in this volcanic wonderland.",
+            background: "https://images.unsplash.com/photo-1539066019419-0941b2392882?w=1920&h=1080&fit=crop&q=80",
+            cards: [
+                {
+                    title: "BLUE LAGOON<br>GEOTHERMAL",
+                    subtitle: "Iceland",
+                    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop&q=80"
+                },
+                {
+                    title: "NORTHERN<br>LIGHTS",
+                    subtitle: "Aurora Borealis",
+                    image: "https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=1920&h=1080&fit=crop&q=80"
+                },
+                {
+                    title: "GULLFOSS<br>WATERFALL",
+                    subtitle: "Iceland",
+                    image: "https://images.unsplash.com/photo-1527004760525-b82658e0a9b5?w=1920&h=1080&fit=crop&q=80"
+                },
+                {
+                    title: "DIAMOND<br>BEACH",
+                    subtitle: "Jökulsárlón · Iceland",
+                    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop&q=80"
+                }
+            ]
+        }
+    ];
+
+    let currentDestinationIndex = 0;
+    let selectedCardIndex = 0;
+
+    const heroSection = document.getElementById('heroSection');
+    const subtitle = document.getElementById('subtitle');
+    const mainTitle = document.getElementById('mainTitle');
+    const description = document.getElementById('description');
+    const destinationCards = document.getElementById('destinationCards');
+    const currentPage = document.getElementById('currentPage');
+    const totalPages = document.getElementById('totalPages');
+    const progressBar = document.getElementById('progressBar');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const heroContent = document.getElementById('heroContent');
+
+    function showHeroContent() {
+        heroContent.classList.remove('visible');
+        setTimeout(() => {
+            heroContent.classList.add('visible');
+        }, 80);
+    }
+
+    function animateCards(direction = 1) {
+        destinationCards.style.transition = "transform 0.59s cubic-bezier(.33,1,.68,1)";
+        destinationCards.style.transform = `translateX(${direction * 110}px) scale(0.98)`;
+        setTimeout(() => {
+            destinationCards.style.transition = "none";
+            destinationCards.style.transform = `translateX(${-direction * 110}px) scale(0.98)`;
+            void destinationCards.offsetWidth;
+            destinationCards.style.transition = "transform 0.59s cubic-bezier(.33,1,.68,1)";
+            destinationCards.style.transform = "translateX(0) scale(1)";
+        }, 270);
+    }
+
+    function updateDestination(direction = 1) {
+        const current = destinations[currentDestinationIndex];
+        heroSection.style.backgroundImage = `url(${current.background})`;
+        showHeroContent();
+        animateCards(direction);
+        setTimeout(() => {
+            subtitle.textContent = current.subtitle;
+            mainTitle.innerHTML = current.title;
+            description.textContent = current.description;
+            currentPage.textContent = String(currentDestinationIndex + 1).padStart(2, '0');
+            const progress = ((currentDestinationIndex + 1) / destinations.length) * 100;
+            progressBar.style.width = `${progress}%`;
+            selectedCardIndex = 0;
+            renderCards();
+        }, 129);
+    }
+
+    function renderCards() {
+        const current = destinations[currentDestinationIndex];
+        destinationCards.innerHTML = '';
+        current.cards.forEach((card, index) => {
+            const cardElement = document.createElement('div');
+            cardElement.className = `destination-card${index === selectedCardIndex ? ' active' : ''}`;
+            cardElement.style.backgroundImage = `url(${card.image})`;
+            cardElement.onclick = () => selectCard(index);
+            cardElement.innerHTML = `
+      <div class="card-content">
+        <div class="card-subtitle">${card.subtitle}</div>
+        <div class="card-title">${card.title}</div>
+      </div>
+    `;
+            destinationCards.appendChild(cardElement);
+        });
+    }
+
+    function selectCard(index) {
+        selectedCardIndex = index;
+        const selectedCard = destinations[currentDestinationIndex].cards[index];
+        heroSection.style.backgroundImage = `url(${selectedCard.image})`;
+        renderCards();
+    }
+
+    function prevDestination() {
+        currentDestinationIndex = (currentDestinationIndex - 1 + destinations.length) % destinations.length;
+        updateDestination(-1);
+    }
+
+    function nextDestination() {
+        currentDestinationIndex = (currentDestinationIndex + 1) % destinations.length;
+        updateDestination(1);
+    }
+
+    prevBtn.addEventListener('click', prevDestination);
+    nextBtn.addEventListener('click', nextDestination);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prevDestination();
+        if (e.key === 'ArrowRight') nextDestination();
+    });
+
+    let autoSlideInterval;
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextDestination, 8000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    heroSection.addEventListener('mouseenter', stopAutoSlide);
+    heroSection.addEventListener('mouseleave', startAutoSlide);
+
+    window.addEventListener('load', () => {
+        totalPages.textContent = String(destinations.length).padStart(2, '0');
+        updateDestination();
+        showHeroContent();
+        startAutoSlide();
+    });
+</script>
+</body>
+</html>
